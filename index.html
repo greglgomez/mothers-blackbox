@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mothers Blackbox - Browse and search through tabletop RPG modules, adventures, and supplements with advanced filtering and search capabilities.">
+    <meta name="keywords" content="tabletop, RPG, modules, adventures, supplements, gaming, directory">
+    <meta name="author" content="Mothers Blackbox">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.github.io/mothers-blackbox/">
+    <meta property="og:title" content="Mothers Blackbox">
+    <meta property="og:description" content="Browse and search through tabletop RPG modules, adventures, and supplements.">
+    <meta property="og:image" content="https://yourdomain.github.io/mothers-blackbox/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.github.io/mothers-blackbox/">
+    <meta property="twitter:title" content="Mothers Blackbox">
+    <meta property="twitter:description" content="Browse and search through tabletop RPG modules, adventures, and supplements.">
+    <meta property="twitter:image" content="https://yourdomain.github.io/mothers-blackbox/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.github.io/mothers-blackbox/">
+    
+    <title>Mothers Blackbox</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Mothers Blackbox",
+        "description": "Browse and search through tabletop RPG modules, adventures, and supplements.",
+        "url": "https://yourdomain.github.io/mothers-blackbox/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourdomain.github.io/mothers-blackbox/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mothers Blackbox"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-spacer"></div>
+            <h1 class="site-title">Mothers Blackbox</h1>
+            <button type="button" class="header-search-toggle" aria-label="Toggle search and filters">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="main" role="main">
+        <div class="container">
+            <section class="search-section" aria-label="Search and filter listings">
+                <div id="search-content" class="search-content" aria-hidden="true">
+                    <div class="search-bar">
+                        <label for="search-input" class="sr-only">Search listings</label>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            class="search-input" 
+                            placeholder="Search listings..."
+                            aria-describedby="search-help"
+                        >
+                        <button type="button" class="search-button" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label class="filter-label">Edition:</label>
+                                <div id="edition-filters" class="filter-buttons" role="group" aria-label="Filter by edition">
+                                </div>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label class="filter-label">Party:</label>
+                                <div id="party-filters" class="filter-buttons" role="group" aria-label="Filter by party">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Module:</label>
+                            <div id="module-filters" class="filter-buttons" role="group" aria-label="Filter by module">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="search-help" class="sr-only">
+                        Type to search through all listings. Use the filter buttons to narrow results by edition, party, or module type.
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section" aria-label="Listings results">
+                <div class="results-header">
+                    <h2 id="results-count" class="results-count">Loading listings...</h2>
+                    <button type="button" id="clear-filters" class="clear-button" style="display: none;">
+                        Clear filters
+                    </button>
+                </div>
+                
+                <div id="loading" class="loading" aria-live="polite">
+                    <div class="spinner"></div>
+                    <p>Loading listings...</p>
+                </div>
+                
+                <div id="error" class="error" style="display: none;" role="alert">
+                    <p>Failed to load listings. Please try again later.</p>
+                </div>
+                
+                <div id="listings-grid" class="listings-grid" aria-label="Listings results">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-content">
+                Website by <a href="https://www.reddit.com/user/greglgomez" target="_blank" rel="noopener noreferrer">/u/greglgomez</a>, 
+                data by <a href="https://www.reddit.com/user/Voljega" target="_blank" rel="noopener noreferrer">/u/Voljega</a>. 
+                <a href="#" target="_blank" rel="noopener noreferrer">Contribute to site here</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
